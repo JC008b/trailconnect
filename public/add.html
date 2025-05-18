@@ -1,0 +1,29 @@
+<!-- public/add.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar nueva pista</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Registrar nueva pista de Mountain Biking</h1>
+  <form action="/add-trail" method="POST">
+    <label for="name">Nombre de la pista:</label>
+    <input type="text" name="name" required /><br />
+
+    <label for="description">Descripción:</label>
+    <textarea name="description" required></textarea><br />
+
+    <label for="latitude">Latitud:</label>
+    <input type="number" step="any" name="latitude" required /><br />
+
+    <label for="longitude">Longitud:</label>
+    <input type="number" step="any" name="longitude" required /><br />
+
+    <button type="submit">Guardar pista</button>
+  </form>
+  <a href="/">← Ver pistas registradas</a>
+</body>
+</html>
