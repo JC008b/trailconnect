@@ -1,17 +1,37 @@
 body {
-  font-family: sans-serif;
-  margin: 2rem;
-  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
-h1 {
-  color: #2e7d32;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-#trails div {
-  background: #fff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+input, select, textarea, button {
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+#map {
+  height: 300px;
+  margin-top: 10px;
 }

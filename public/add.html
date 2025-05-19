@@ -1,29 +1,46 @@
-<!-- public/add.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registrar nueva pista</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrar Pista</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Registrar nueva pista de Mountain Biking</h1>
-  <form action="/add-trail" method="POST">
-    <label for="name">Nombre de la pista:</label>
-    <input type="text" name="name" required /><br />
+  <h1>Agregar Nueva Pista</h1>
+  <form id="trailForm">
+    <label>Nombre de la pista:</label>
+    <input type="text" name="name" required />
 
-    <label for="description">Descripción:</label>
-    <textarea name="description" required></textarea><br />
+    <label>Dificultad:</label>
+    <select name="difficulty" required>
+      <option value="">Selecciona</option>
+      <option value="baja">Baja</option>
+      <option value="media">Media</option>
+      <option value="media-alta">Media-Alta</option>
+      <option value="alta">Alta</option>
+    </select>
 
-    <label for="latitude">Latitud:</label>
-    <input type="number" step="any" name="latitude" required /><br />
+    <label>Descripción:</label>
+    <textarea name="description" rows="4" required></textarea>
 
-    <label for="longitude">Longitud:</label>
-    <input type="number" step="any" name="longitude" required /><br />
+    <label>Búsqueda de ubicación:</label>
+    <input type="text" id="searchInput" placeholder="Código postal, ciudad o parque" />
+    <button type="button" id="searchBtn">Buscar ubicación</button>
 
-    <button type="submit">Guardar pista</button>
+    <div id="map"></div>
+
+    <input type="hidden" name="latitude" id="latitude" />
+    <input type="hidden" name="longitude" id="longitude" />
+
+    <button type="submit">Registrar Pista</button>
   </form>
-  <a href="/">← Ver pistas registradas</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="script.js"></script>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRyFJCmQrVP99kjH7SboA-Wm3D_8BcStg&callback=initMap">
+  </script>
 </body>
 </html>
+
