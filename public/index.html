@@ -2,13 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrailConnect - Inicio</title>
+  <title>Pistas registradas</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Pistas registradas</h1>
-  <div id="trails"></div>
-  <script src="script.js"></script>
+  <div class="container">
+    <h1>Pistas registradas</h1>
+    <ul id="trailList"></ul>
+    <a href="/add.html" class="link">Agregar nueva pista</a>
+  </div>
+  <script>
+    fetch("/api/trails")
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("trailList");
+        data.forEach(trail => {
+          const li = document.createElement("li");
+          li.textContent = `${trail.name} (${trail.difficulty}): ${trail.description}`;
+          list.appendChild(li);
+        });
+      });
+  </script>
 </body>
 </html>

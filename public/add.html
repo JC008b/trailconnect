@@ -3,44 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Registrar Pista</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Agregar nueva pista</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1>Agregar Nueva Pista</h1>
-  <form id="trailForm">
-    <label>Nombre de la pista:</label>
-    <input type="text" name="name" required />
+  <div class="container">
+    <h1>Agregar nueva pista</h1>
+    <form id="trailForm">
+      <label for="name">Nombre de la pista</label>
+      <input type="text" id="name" name="name" required />
 
-    <label>Dificultad:</label>
-    <select name="difficulty" required>
-      <option value="">Selecciona</option>
-      <option value="baja">Baja</option>
-      <option value="media">Media</option>
-      <option value="media-alta">Media-Alta</option>
-      <option value="alta">Alta</option>
-    </select>
+      <label for="difficulty">Dificultad</label>
+      <select id="difficulty" name="difficulty" required>
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Media-Alta">Media-Alta</option>
+        <option value="Alta">Alta</option>
+      </select>
 
-    <label>Descripción:</label>
-    <textarea name="description" rows="4" required></textarea>
+      <label for="description">Descripción</label>
+      <textarea id="description" name="description" rows="4" required></textarea>
 
-    <label>Búsqueda de ubicación:</label>
-    <input type="text" id="searchInput" placeholder="Código postal, ciudad o parque" />
-    <button type="button" id="searchBtn">Buscar ubicación</button>
+      <label for="location">Buscar ubicación (ciudad, parque o código postal)</label>
+      <input type="text" id="location" name="location" required />
+      <button type="button" onclick="buscarUbicacion()">Buscar ubicación</button>
 
-    <div id="map"></div>
+      <div id="map" style="height: 300px; margin-top: 15px;"></div>
 
-    <input type="hidden" name="latitude" id="latitude" />
-    <input type="hidden" name="longitude" id="longitude" />
+      <input type="hidden" id="lat" name="lat" />
+      <input type="hidden" id="lng" name="lng" />
 
-    <button type="submit">Registrar Pista</button>
-  </form>
+      <button type="submit">Agregar pista</button>
+    </form>
+    <a href="/index.html" class="link">Ver pistas registradas</a>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRyFJCmQrVP99kjH7SboA-Wm3D_8BcStg&callback=initMap" async defer></script>
   <script src="script.js"></script>
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRyFJCmQrVP99kjH7SboA-Wm3D_8BcStg&callback=initMap">
-  </script>
 </body>
 </html>
+
 
